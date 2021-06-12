@@ -62,7 +62,7 @@
         <div class="container" style='width:500px;'>
           <h3 align="center">Search Player and Enter the Minimum Runs Scored:</h3>
           <br>
-          <form action="acb.php" name="form1" method="POST" class="form-group">
+          <form action="https://sortipl.herokuapp.com/" name="form1" method="POST" class="form-group">
           <br>
           <label for="score">Enter Runs:</label><br>
 
