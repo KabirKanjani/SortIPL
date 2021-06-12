@@ -1,7 +1,7 @@
 <?php
 
 // Connect to DB
-$conn = mysqli_connect("us-cdbr-east-04.cleardb.com", "b5a264c5c9d4c6","b8abe23f","heroku_e6cf41e0044a150");      //$db=mysqli_select_db($connect,"bollywood");
+$connect = mysqli_connect("us-cdbr-east-04.cleardb.com", "b5a264c5c9d4c6","b8abe23f","heroku_e6cf41e0044a150");      //$db=mysqli_select_db($connect,"bollywood");
 if(isset($_POST['query']))
 {
   $output='';
