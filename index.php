@@ -121,103 +121,103 @@ box-sizing: border-box;
         </div>
       </body>
 
-<?php
-if(isset($_POST['player'])&&isset($_POST['score'])&&!empty($_POST['player'])&&!empty($_POST['score']))
-{
-  checkname($_POST['player'],$_POST['score']);
-}
-function checkname($oname,$runs)
-{
-  echo "
-  <br><br><br>
-  <table class='table table-hover table-light'>
-  <thead class=thead-dark>
-  <tr>
-  <center><th colspan=5 style='text-transform: uppercase; text-align:center;'>IPL Matches where ".$_POST['player']." has Score of ".$_POST['score']." or more</th></center>
-  </tr>
-  <tr>
-  <th>Team1</th>
-  <th>Team2</th>
-  <th>Score</th>
-  <th>Year</th>
-  <th>Link</th>
-  </tr>
-  </thead>
-  ";
-
-  // Connect to DB
-  $connect = mysqli_connect("us-cdbr-east-04.cleardb.com", "b5a264c5c9d4c6","b8abe23f","heroku_e6cf41e0044a150");      //$db=mysqli_select_db($connect,"bollywood");
-
-      $query="select Pid from all_player where Pname='".$oname."'";
-      if($query_run=mysqli_query($connect,$query))
+      <?php
+      if(isset($_POST['player'])&&isset($_POST['score'])&&!empty($_POST['player'])&&!empty($_POST['score']))
       {
-        $data=mysqli_fetch_assoc($query_run);
-        if(empty($data['Pid']))
-        {
+        checkname($_POST['player'],$_POST['score']);
+      }
+      function checkname($oname,$runs)
+      {
+        echo "
+        <br><br><br>
+        <table class='table table-hover table-light'>
+        <thead class=thead-dark>
+        <tr>
+        <center><th colspan=5 style='text-transform: uppercase; text-align:center;'>IPL Matches where ".$_POST['player']." has Score of ".$_POST['score']." or more</th></center>
+        </tr>
+        <tr>
+        <th>Team1</th>
+        <th>Team2</th>
+        <th>Score</th>
+        <th>Year</th>
+        <th>Link</th>
+        </tr>
+        </thead>
+        ";
 
-        }
-          else{
-        $id=$data['Pid'];
-        $query="select Mid,Score from lastdata where Pid='P".$id."' AND Score>='".$runs."'";
-          if($query_run=mysqli_query($connect,$query))
-          {
-                while($data=mysqli_fetch_array($query_run))
+        // Connect to DB
+        $connect = mysqli_connect("us-cdbr-east-04.cleardb.com", "b5a264c5c9d4c6","b8abe23f","heroku_e6cf41e0044a150");      //$db=mysqli_select_db($connect,"bollywood");
+
+            $query="select Pid from all_player where Pname='".$oname."'";
+            if($query_run=mysqli_query($connect,$query))
+            {
+              $data=mysqli_fetch_assoc($query_run);
+              if(empty($data['Pid']))
+              {
+
+              }
+                else{
+              $id=$data['Pid'];
+              $query="select Mid,Score from lastdata where Pid='P".$id."' AND Score>='".$runs."'";
+                if($query_run=mysqli_query($connect,$query))
                 {
-                      $score=$data['Score'];
-                        echo "<tr>";
-                        $query2="Select * from ipl where id='".$data['Mid']."'";
-                        // echo $query2;
-                        if($query_run1=mysqli_query($connect,$query2))
-                        {
+                      while($data=mysqli_fetch_array($query_run))
+                      {
+                            $score=$data['Score'];
+                              echo "<tr>";
+                              $query2="Select * from ipl where id='".$data['Mid']."'";
+                              // echo $query2;
+                              if($query_run1=mysqli_query($connect,$query2))
+                              {
 
-                          $data=mysqli_fetch_assoc($query_run1);
-                          echo "<td>".$data['Team1']."</td>";
-                          echo "<td>".$data['Team2']."</td>";
-                          echo "<td>".$score."</td>";
-                          echo "<td>".$data['Year']."</td>";
-                          $link=$data['Link'];
-                          echo "<td><a href=".$link." target='_blank'>Link</a></td>";
+                                $data=mysqli_fetch_assoc($query_run1);
+                                echo "<td>".$data['Team1']."</td>";
+                                echo "<td>".$data['Team2']."</td>";
+                                echo "<td>".$score."</td>";
+                                echo "<td>".$data['Year']."</td>";
+                                $link=$data['Link'];
+                                echo "<td><a href=".$link." target='_blank'>Link</a></td>";
+                              }
+                              echo "</tr>";
+                            }
+                          }
                         }
-                        echo "</tr>";
-                      }
+                        }
+            echo "</Table>";
+      }
+      ?>
+      <script>
+
+      $(document).ready(function()
+        {
+            $('#player').keyup(function(){
+              var query=$(this).val();
+              if(query!='')
+              {
+                $.ajax(
+                  {
+                    url:"search.php",
+                    method:"POST",
+                    data:{query:query},
+                    success:function(data)
+                    {
+                      $('#playerlist').fadeIn();
+                      $('#playerlist').html(data);
                     }
                   }
-                  }
-      echo "</Table>";
-}
-?>
-<script>
-
-$(document).ready(function()
-  {
-      $('#player').keyup(function(){
-        var query=$(this).val();
-        if(query!='')
-        {
-          $.ajax(
-            {
-              url:"search.php",
-              method:"POST",
-              data:{query:query},
-              success:function(data)
-              {
-                $('#playerlist').fadeIn();
-                $('#playerlist').html(data);
+                );
               }
-            }
-          );
+              else {
+                $('#playerlist').fadeOut();
+                $('#playerlist').html("");
+              }
+            });
+            $(document).on('click','li',function(){
+              $('#player').val($(this).text());
+              $('#playerlist').fadeOut();
+            });
         }
-        else {
-          $('#playerlist').fadeOut();
-          $('#playerlist').html("");
-        }
-      });
-      $(document).on('click','li',function(){
-        $('#player').val($(this).text());
-        $('#playerlist').fadeOut();
-      });
-  }
-);
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</html>
+      );
+      </script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      </html>
