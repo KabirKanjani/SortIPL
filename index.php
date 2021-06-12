@@ -2,6 +2,7 @@
 <html lang="en">
 
       <head>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>SortIPL</title>
         <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
         <!-- <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
@@ -28,13 +29,20 @@
           font-size: 25px;
 
         }
-
-            body
+        body, html {
+          min-height:100%;
+           height: 100vh;  /* if not working try vh instead of % */
+        }
+                       body
             {
+              margin:0px;
                color: white;
               font-size: 25px;
                 background:url('Pictures/Mi.jpg') top center repeat-y;
-                 background-size: 100%;
+                background-repeat: no-repeat;  /* Background Image Will not repeat */
+                background-attachment: fixed;  /* Background Image will stay fixed */
+                background-size: cover;
+                 /* background-size: 100%; */
                  image-rendering: -webkit-optimize-contrast;
             }
             .bg-image
@@ -54,8 +62,7 @@
         {
         padding:12px;
         }
-        </style>
-      </head>
+        </style>      </head>
       <body>
 
         <br><br>
