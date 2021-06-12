@@ -2,7 +2,7 @@
       <html lang="en">
 
             <head>
-               <meta name="viewport" content="width=device-width, initial-scale=1">
+               <!-- <meta name="viewport" content="width=device-width, initial-scale=4"> -->
               <title>SortIPL</title>
               <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
               <!-- <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
@@ -16,6 +16,7 @@
               table
               {
                   background-color: white;
+                  margin:0;
               }
               img
               {
