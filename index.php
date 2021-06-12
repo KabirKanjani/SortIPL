@@ -24,6 +24,37 @@
             margin-top: 5%;
             size:20%;
         }
+        .block
+{
+margin: 0 auto;
+max-width: 900px;
+padding: 50px 30px;
+}
+.input-res
+{
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+font: 15px/1 'Open Sans', sans-serif;
+color: #333;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+width: 100%;
+max-width: 500px;
+background-color: #ddd;
+border: none;
+padding: 10px 11px 11px 11px;
+border-radius: 3px;
+box-shadow: none;
+outline: none;
+margin: 0;
+box-sizing: border-box;
+}
+
+        label
+        {
+            font-size: 5vh;
+        }
         td
         {
            /* color: white; */
@@ -38,7 +69,7 @@
             {
               margin:0px;
                color: white;
-              font-size: 25px;
+              font-size:1vw;
                 background:url('Pictures/Mi.jpg') top center repeat-y;
                 background-repeat: no-repeat;  /* Background Image Will not repeat */
                 background-attachment: fixed;  /* Background Image will stay fixed */
@@ -68,17 +99,20 @@
       <body>
 
         <br><br>
-        <div class="container" style='width:500px;'>
+        <div class="container" style='width:100%;'>
           <h3 align="center">Search Player and Enter the Minimum Runs Scored:</h3>
           <br>
           <form action="https://sortipl.herokuapp.com/" name="form1" method="POST" class="form-group">
           <br>
           <label for="score">Enter Runs:</label><br>
-
-          <input type="number" class="score" name="score" max="175" min="1" id="score" placeholder="Enter Runs">
+          <div class="block">
+          <input type="number" class="input-res" name="score" max="175" min="1" id="score" placeholder="Enter Runs">
+        </div>
           <br><br>
           <label for="score">Enter Players Name:</label>
-          <input type="text" name="player"  autocomplete="off" id="player" class="form-control" placeholder="Enter Player Name">
+          <div class="block">
+          <input type="text" name="player"  autocomplete="off" id="player" class="input-res" placeholder="Enter Player Name">
+        </div>
             <div id="playerlist" name="playerlist">
             </div>
             <br><input type="submit" value="Find" class="btn btn-light btn-outline-dark btn-lg mb-2">
@@ -113,6 +147,7 @@ function checkname($oname,$runs)
 
   // Connect to DB
   $connect = mysqli_connect("us-cdbr-east-04.cleardb.com", "b5a264c5c9d4c6","b8abe23f","heroku_e6cf41e0044a150");      //$db=mysqli_select_db($connect,"bollywood");
+
       $query="select Pid from all_player where Pname='".$oname."'";
       if($query_run=mysqli_query($connect,$query))
       {
