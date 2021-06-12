@@ -54,6 +54,7 @@
               label
               {
                   font-size: 5vh;
+                  color: black;
               }
               td
               {
@@ -70,7 +71,7 @@
                     margin:0px;
                      color: white;
                     font-size:1vw;
-                      background:url('Pictures/Mi.jpg') top center repeat-y;
+                      background:url('Pictures/Mi.png') top center repeat-y;
                       background-repeat: no-repeat;  /* Background Image Will not repeat */
                       background-attachment: fixed;  /* Background Image will stay fixed */
                       background-size: cover;
@@ -80,9 +81,10 @@
                   .bg-image
                   {
                       background:url('Pictures/Mi.jpg') top center repeat-y;
+
                   }
-                    ::placeholder
                           {
+                            ::placeholder
                             font-size: 13px;
                           }
               ul{
@@ -106,12 +108,12 @@
                 <br>
                 <label for="score">Enter Runs:</label><br>
                 <div class="block">
-                <input type="number" class="input-res" name="score" max="175" min="1" id="score" placeholder="Enter Runs">
+                <input type="number" name="score" max="175" min="1" id="score" class="form-control w-25 p-3" placeholder="Enter Runs">
               </div>
                 <br><br>
                 <label for="score">Enter Players Name:</label>
                 <div class="block">
-                <input type="text" name="player"  autocomplete="off" id="player" class="input-res" placeholder="Enter Player Name">
+                <input type="text" name="player"  autocomplete="off" id="player" class="form-control w-50 p-3" placeholder="Enter Player Name">
               </div>
                   <div id="playerlist" name="playerlist">
                   </div>

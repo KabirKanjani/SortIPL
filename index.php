@@ -106,12 +106,12 @@ box-sizing: border-box;
           <br>
           <label for="score">Enter Runs:</label><br>
           <div class="block">
-          <input type="number" class="input-res" name="score" max="175" min="1" id="score" placeholder="Enter Runs">
+          <input type="number" class="form-control w-25 p-3 name="score" max="175" min="1" id="score" placeholder="Enter Runs">
         </div>
           <br><br>
           <label for="score">Enter Players Name:</label>
           <div class="block">
-          <input type="text" name="player"  autocomplete="off" id="player" class="input-res" placeholder="Enter Player Name">
+          <input type="text" name="player"  autocomplete="off" id="player" class="form-control w-50 p-3 placeholder="Enter Player Name">
         </div>
             <div id="playerlist" name="playerlist">
             </div>
