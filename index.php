@@ -29,12 +29,31 @@
 
         }
 
-            body
+        label
+        {
+            font-size: 5vh;
+            color: black;
+        }
+        td
+        {
+           /* color: white; */
+          font-size: 25px;
+
+        }
+        body, html {
+          min-height:100%;
+           height: 100vh;  /* if not working try vh instead of % */
+        }
+                       body
             {
+              margin:0px;
                color: white;
-              font-size: 25px;
-                background:url('Pictures/Mi.jpg') top center repeat-y;
-                 background-size: 100%;
+              font-size:1vw;
+                background:url('Pictures/Mi.png') top center repeat-y;
+                background-repeat: no-repeat;  /* Background Image Will not repeat */
+                background-attachment: fixed;  /* Background Image will stay fixed */
+                background-size: cover;
+                 /* background-size: 100%; */
                  image-rendering: -webkit-optimize-contrast;
             }
             .bg-image
