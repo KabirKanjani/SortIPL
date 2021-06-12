@@ -103,15 +103,14 @@ function checkname($oname,$runs)
   ";
 
   $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-$cleardb_server = $cleardb_url["us-cdbr-east-04.cleardb.com"];
-$cleardb_username = $cleardb_url["b5a264c5c9d4c6"];
-$cleardb_password = $cleardb_url["b8abe23f"];
-$cleardb_db = substr($cleardb_url["path"],1);
-$active_group = 'default';
-$query_builder = TRUE;
-
-      $connect=mysqli_connect($cleardb_server,$cleardb_username,$cleardb_password,$cleardb_db);
-      //$db=mysqli_select_db($connect,"bollywood");
+  $cleardb_server = $cleardb_url["host"];
+  $cleardb_username = $cleardb_url["user"];
+  $cleardb_password = $cleardb_url["pass"];
+  $cleardb_db = substr($cleardb_url["path"],1);
+  $active_group = 'default';
+  $query_builder = TRUE;
+  // Connect to DB
+  $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);      //$db=mysqli_select_db($connect,"bollywood");
       $query="select Pid from all_player where Pname='".$oname."'";
       if($query_run=mysqli_query($connect,$query))
       {
