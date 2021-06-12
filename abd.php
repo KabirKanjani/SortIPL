@@ -39,6 +39,11 @@
                 min-height:100%;
                  height: 100vh;  /* if not working try vh instead of % */
               }
+              input[type="text"],input[type="number"]
+              {
+                height: 3.5vh;
+              }
+
                              body
                   {
                     margin:0px;
@@ -58,7 +63,7 @@
                   }
                           {
                             ::placeholder
-                            font-size: 13px;
+                            font-size: 4vh;
                           }
               ul{
                 background-color:black;

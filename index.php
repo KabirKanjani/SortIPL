@@ -22,6 +22,11 @@
             margin-top: 5%;
             size:20%;
         }
+        input[type="text"],input[type="number"]
+        {
+          height: 3.5vh;
+        }
+
         td
         {
            /* color: white; */
