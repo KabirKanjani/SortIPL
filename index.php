@@ -174,7 +174,7 @@
         <br><br>
         <div class="container">
             <div class="title">Enter Score and Player name.</div>
-            <label>This will find all the IPL matches where the mentioned player has scored equal to more than the mentioned runs.</label>
+            <label>This will find all the IPL matches where the mentioned player has scored equal to or more than the mentioned runs.</label>
 
             <form action="https://sortipl.herokuapp.com/" method="POST">
 
