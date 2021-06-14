@@ -200,7 +200,7 @@
 <?php
 if(isset($_POST['player'])&&isset($_POST['score'])&&!empty($_POST['player'])&&!empty($_POST['score']))
 {
-  echo $_POST['player'];
+
   checkname($_POST['player'],$_POST['score']);
 }
 function checkname($oname,$runs)
