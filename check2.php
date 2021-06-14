@@ -174,7 +174,7 @@
         <br><br>
         <div class="container">
             <div class="title">Enter Score and Player name.</div>
-            <form action="https://sortipl.herokuapp.com/" method="POST">
+            <form action="check2.php" method="POST">
 
                 <div class="user-details">
                     <div class="input-box">
