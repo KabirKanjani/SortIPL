@@ -135,7 +135,7 @@
 
         label
         {
-            font-size: 5vh;
+            font-size:15px;
             color: black;
         }
                        body
@@ -174,6 +174,7 @@
         <br><br>
         <div class="container">
             <div class="title">Enter Score and Player name.</div>
+            <label>This will find all the IPL matches where the mentioned player has scored equal to more than the mentioned runs.</label>
             <form action="check2.php" method="POST">
 
                 <div class="user-details">
@@ -188,7 +189,7 @@
                         </div>
                     <div class="button">
 
-             <input type="submit" value="Register">
+             <input type="submit" value="Find">
            </div>
                 </div>
             </form>
