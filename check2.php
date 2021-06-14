@@ -180,7 +180,7 @@
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Enter Score:</span>
-                        <input type="number" name="score" max=175 min=1 placeholder="Enter Runs">
+                        <input type="number" name="score" max="175" min="0" placeholder="Enter Runs">
                     </div>
                     <div class="input-box">
                         <span class="details">Enter Name:</span>
@@ -197,9 +197,9 @@
       </body>
 
 <?php
-if(isset($_POST['player'])&&isset($_POST['score'])&&!empty($_POST['player'])&&!empty($_POST['score']))
+echo $_POST['score'];
+if(isset($_POST['player'])&&isset($_POST['score'])&&!empty($_POST['player']))
 {
-  echo $_POST['player'];
   checkname($_POST['player'],$_POST['score']);
 }
 function checkname($oname,$runs)
